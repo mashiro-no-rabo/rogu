@@ -1,0 +1,32 @@
+<h2>Listing Logs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hyoudai</th>
+      <th>Kiji</th>
+      <th>Gengo</th>
+      <th>Detsu</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for log <- @logs do %>
+    <tr>
+      <td><%= log.hyoudai %></td>
+      <td><%= log.kiji %></td>
+      <td><%= log.gengo %></td>
+      <td><%= log.detsu %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: log_path(@conn, :show, log), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: log_path(@conn, :edit, log), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Log", to: log_path(@conn, :new) %></span>

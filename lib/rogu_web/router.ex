@@ -12,6 +12,8 @@ defmodule RoguWeb.Router do
   scope "/", RoguWeb do
     pipe_through :browser
 
+    resources "/logs", LogController
+
     get "/", PageController, :index
   end
 end

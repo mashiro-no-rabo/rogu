@@ -1,0 +1,5 @@
+<h2>Edit Log</h2>
+
+<%= render "form.html", Map.put(assigns, :action, log_path(@conn, :update, @log)) %>
+
+<span><%= link "Back", to: log_path(@conn, :index) %></span>

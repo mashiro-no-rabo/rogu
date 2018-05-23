@@ -1,0 +1,28 @@
+<h2>Show Log</h2>
+
+<ul>
+
+  <li>
+    <strong>Hyoudai:</strong>
+    <%= @log.hyoudai %>
+  </li>
+
+  <li>
+    <strong>Kiji:</strong>
+    <%= @log.kiji %>
+  </li>
+
+  <li>
+    <strong>Gengo:</strong>
+    <%= @log.gengo %>
+  </li>
+
+  <li>
+    <strong>Detsu:</strong>
+    <%= @log.detsu %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: log_path(@conn, :edit, @log) %></span>
+<span><%= link "Back", to: log_path(@conn, :index) %></span>
