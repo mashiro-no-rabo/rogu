@@ -23,9 +23,9 @@
             <td><%= if log.detsu != nil do log.detsu else NaiveDateTime.to_date(log.inserted_at) end %></td>
 
             <td class="text-right">
-              <span><%= link "Show", to: log_path(@conn, :show, log), class: "btn btn-default btn-xs" %></span>
-              <span><%= link "Edit", to: log_path(@conn, :edit, log), class: "btn btn-default btn-xs" %></span>
-              <span><%= link "Delete", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+              <span><%= link "", to: log_path(@conn, :show, log), class: "fas fa-link" %></span>
+              <span><%= link "", to: log_path(@conn, :edit, log), class: "fas fa-pencil-alt" %></span>
+              <span><%= link "", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "fas fa-trash-alt" %></span>
             </td>
           </tr>
         <% end %>
