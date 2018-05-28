@@ -1,32 +1,37 @@
-<h2>Listing Logs</h2>
+<div class="pure-g">
+  <div class="pure-u-lg-1-8 pure-u-1"></div>
+  <div class="pure-u-lg-7-8 pure-u-1">
+    <h2>Listing Logs</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Hyoudai</th>
-      <th>Kiji</th>
-      <th>Gengo</th>
-      <th>Detsu</th>
+    <table class="pure-table">
+      <thead>
+        <tr>
+          <th>「表題」Hyoudai</th>
+          <th>「記事」Kiji</th>
+          <th>「言語」Gengo</th>
+          <th>「デツ」Detsu</th>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for log <- @logs do %>
-    <tr>
-      <td><%= log.hyoudai %></td>
-      <td><%= log.kiji %></td>
-      <td><%= log.gengo %></td>
-      <td><%= log.detsu %></td>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for log <- @logs do %>
+          <tr>
+            <td><%= log.hyoudai %></td>
+            <td><%= log.kiji %></td>
+            <td><%= log.gengo %></td>
+            <td><%= if log.detsu != nil do log.detsu else NaiveDateTime.to_date(log.inserted_at) end %></td>
 
-      <td class="text-right">
-        <span><%= link "Show", to: log_path(@conn, :show, log), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: log_path(@conn, :edit, log), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+            <td class="text-right">
+              <span><%= link "Show", to: log_path(@conn, :show, log), class: "btn btn-default btn-xs" %></span>
+              <span><%= link "Edit", to: log_path(@conn, :edit, log), class: "btn btn-default btn-xs" %></span>
+              <span><%= link "Delete", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<span><%= link "New Log", to: log_path(@conn, :new) %></span>
+    <p><%= link "New Log", to: log_path(@conn, :new) %></p>
+  </div>
+</div>
