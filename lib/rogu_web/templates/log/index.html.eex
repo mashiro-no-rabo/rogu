@@ -20,10 +20,10 @@
             <td><h3><%= log.hyoudai %></h3></td>
             <td><%= raw Earmark.as_html!(log.kiji) %></td>
             <td><%= log.gengo %></td>
-            <td class="date"><%= log.display_date %></td>
+            <td class="date"><%= link log.display_date, to: log_path(@conn, :show, log) %></td>
 
             <td class="text-right">
-              <span><%= link "", to: log_path(@conn, :show, log), class: "fas fa-link" %></span>
+              <span></span>
               <span><%= link "", to: log_path(@conn, :edit, log), class: "fas fa-pencil-alt" %></span>
               <span><%= link "", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "fas fa-trash-alt" %></span>
             </td>
