@@ -9,19 +9,14 @@ defmodule Rogu.Life do
   alias Rogu.Life.Log
 
   @doc """
-  Returns the list of logs.
-
-  ## Examples
-
-      iex> list_logs()
-      [%Log{}, ...]
-
+  Returns all logs, fill `display_date` with `detsu` first or `inserted_at`, then sort descent based on this
   """
   def list_logs do
-    Repo.all(Log)
-    |> Enum.map(fn log ->
-      %{log | display_date: log.detsu || NaiveDateTime.to_date(log.inserted_at)}
-    end)
+    Repo.all(
+      from l in Log,
+      select: %{l | display_date: type(fragment("COALESCE(detsu, inserted_at)"), :date)},
+      order_by: [desc: fragment("COALESCE(detsu, inserted_at)")]
+    )
   end
 
   @doc """
