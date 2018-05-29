@@ -1,36 +1,18 @@
-<div class="pure-u-lg-1-5 pure-u-1"></div>
-<div class="pure-u-lg-3-5 pure-u-1">
-  <h2>Listing Logs</h2>
+<div class="pure-g">
+  <div class="pure-u-lg-1-5 pure-u-1"></div>
+  <div class="pure-u-lg-3-5 pure-u-1">
+    <%= for log <- @logs do %>
+      <div class="log-container">
+        <%= link to: log_path(@conn, :show, log) do %>
+          <h2 class="log-title"><small class="log-date"><%= log.display_date %></small><%= log.hyoudai %></h2>
+        <% end %>
+        <div class="log-content">
+          <%= raw Earmark.as_html!(log.kiji) %>
+        </div>
+      </div>
+    <% end %>
 
-  <table class="pure-table">
-    <thead>
-      <tr>
-        <th>「表題」Hyoudai</th>
-        <th>「記事」Kiji</th>
-        <th>「言語」Gengo</th>
-        <th>「デツ」Detsu</th>
-
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= for log <- @logs do %>
-        <tr>
-          <td><h3><%= log.hyoudai %></h3></td>
-          <td><%= raw Earmark.as_html!(log.kiji) %></td>
-          <td><%= log.gengo %></td>
-          <td class="date"><%= link log.display_date, to: log_path(@conn, :show, log) %></td>
-
-          <td class="text-right">
-            <span></span>
-            <span><%= link "", to: log_path(@conn, :edit, log), class: "fas fa-pencil-alt" %></span>
-            <span><%= link "", to: log_path(@conn, :delete, log), method: :delete, data: [confirm: "Are you sure?"], class: "fas fa-trash-alt" %></span>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <p><%= link "New Log", to: log_path(@conn, :new), class: "pure-button" %></p>
+    <p><%= link "New Log", to: log_path(@conn, :new), class: "pure-button" %></p>
+  </div>
+  <div class="pure-u-lg-1-5 pure-u-1"></div>
 </div>
-<div class="pure-u-lg-1-5 pure-u-1"></div>

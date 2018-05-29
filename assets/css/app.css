@@ -13,6 +13,10 @@ a {
   color: unset;
 }
 
+h1 {
+  font-size: 1.8em;
+}
+
 h2 {
   font-family: "cronos-pro-caption";
   font-weight: 700;
@@ -28,8 +32,31 @@ p {
   font-style: normal;
 }
 
-.date {
+.log-container {
+  margin: 1em 0.4em;
+}
+
+.log-date {
+  opacity: 0.4;
   font-family: "cronos-pro-display",sans-serif;
   font-style: normal;
   font-weight: 300;
+  font-size: 60%;
+  margin-right: 0.5em;
+}
+
+.log-title {
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+}
+
+.log-content {
+  margin-top: -0.8em;
+}
+
+.button-delete {
+  background: rgb(202, 60, 60);
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
