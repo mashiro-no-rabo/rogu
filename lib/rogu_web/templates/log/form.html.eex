@@ -1,35 +1,33 @@
-<%= form_for @changeset, @action, [class: "pure-form"], fn f -> %>
+<%= form_for @changeset, @action, [class: "pure-form pure-form-stacked"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :hyoudai, class: "control-label" %>
-    <%= text_input f, :hyoudai, class: "form-control" %>
-    <%= error_tag f, :hyoudai %>
-  </div>
+  <fieldset class="pure-group">
+    <div class="pure-control-group">
+      <%= text_input f, :hyoudai, class: "pure-input-1", placeholder: "表題" %>
+      <%= error_tag f, :hyoudai %>
+    </div>
 
-  <div class="form-group">
-    <%= label f, :kiji, class: "control-label" %>
-    <%= textarea f, :kiji, class: "form-control" %>
-    <%= error_tag f, :kiji %>
-  </div>
+    <div class="pure-control-group">
+      <%= textarea f, :kiji, class: "pure-input-1", placeholder: "記事", autofocus: true, required: true, rows: 20 %>
+      <%= error_tag f, :kiji %>
+    </div>
+  </fieldset>
 
-  <div class="form-group">
-    <%= label f, :gengo, class: "control-label" %>
-    <%= text_input f, :gengo, class: "form-control" %>
+  <div class="pure-control-group">
+    <%= text_input f, :gengo, class: "form-control", placeholder: "言語" %>
     <%= error_tag f, :gengo %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :detsu, class: "control-label" %>
-    <%= text_input f, :detsu, class: "form-control" %>
+  <div class="pure-control-group">
+    <%= label f, :detsu do "デツ" end %>
+    <%= date_input f, :detsu, class: "form-control" %>
     <%= error_tag f, :detsu %>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+  <%= submit "Submit", class: "pure-button pure-button-primary" %>
+  <%= link "Cancel", to: @back, class: "pure-button" %>
 <% end %>

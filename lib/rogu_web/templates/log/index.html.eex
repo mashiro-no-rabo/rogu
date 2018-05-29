@@ -31,6 +31,6 @@
     </tbody>
   </table>
 
-  <p><%= link "New Log", to: log_path(@conn, :new) %></p>
+  <p><%= link "New Log", to: log_path(@conn, :new), class: "pure-button" %></p>
 </div>
 <div class="pure-u-lg-1-5 pure-u-1"></div>
