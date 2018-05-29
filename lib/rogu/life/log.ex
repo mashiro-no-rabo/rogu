@@ -10,6 +10,8 @@ defmodule Rogu.Life.Log do
     field :detsu, :date
 
     timestamps()
+
+    field :display_date, :date, virtual: true
   end
 
   @doc false

@@ -20,7 +20,7 @@
             <td><%= log.hyoudai %></td>
             <td><%= raw Earmark.as_html!(log.kiji) %></td>
             <td><%= log.gengo %></td>
-            <td><%= if log.detsu != nil do log.detsu else NaiveDateTime.to_date(log.inserted_at) end %></td>
+            <td><%= log.display_date %></td>
 
             <td class="text-right">
               <span><%= link "", to: log_path(@conn, :show, log), class: "fas fa-link" %></span>

@@ -19,6 +19,13 @@ defmodule Rogu.Life do
   """
   def list_logs do
     Repo.all(Log)
+    |> Enum.map(fn log ->
+      if log.detsu != nil do
+        %{log | display_date: log.detsu}
+      else
+        %{log | display_date: NaiveDateTime.to_date(log.inserted_at)}
+      end
+    end)
   end
 
   @doc """
