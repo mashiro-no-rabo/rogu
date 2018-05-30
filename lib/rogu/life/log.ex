@@ -8,6 +8,7 @@ defmodule Rogu.Life.Log do
     field :kiji, :string
     field :gengo, :string
     field :detsu, :date
+    field :private?, :boolean, source: :private
 
     timestamps()
 
@@ -17,7 +18,7 @@ defmodule Rogu.Life.Log do
   @doc false
   def changeset(log, attrs) do
     log
-    |> cast(attrs, [:hyoudai, :kiji, :gengo, :detsu])
-    |> validate_required([:kiji])
+    |> cast(attrs, [:hyoudai, :kiji, :gengo, :detsu, :private?])
+    |> validate_required([:kiji, :private?])
   end
 end

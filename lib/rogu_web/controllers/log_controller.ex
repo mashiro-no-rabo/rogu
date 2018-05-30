@@ -29,7 +29,11 @@ defmodule RoguWeb.LogController do
 
   def show(conn, %{"id" => id}) do
     log = Life.get_log!(id)
-    render(conn, "show.html", log: log)
+    if log.private? && !get_session(conn, :login) do
+      redirect(conn, to: log_path(conn, :index))
+    else
+      render(conn, "show.html", log: log)
+    end
   end
 
   def edit(conn, %{"id" => id}) do
@@ -65,7 +69,7 @@ defmodule RoguWeb.LogController do
       conn
     else
       conn
-      |> put_flash(:msg, "何？")
+      |> put_flash(:msg, "なに？")
       |> redirect(to: "/")
       |> halt()
     end

@@ -18,14 +18,19 @@
   </fieldset>
 
   <div class="pure-control-group">
-    <%= text_input f, :gengo, class: "form-control", placeholder: "言語" %>
+    <%= text_input f, :gengo, placeholder: "言語" %>
     <%= error_tag f, :gengo %>
   </div>
 
   <div class="pure-control-group">
     <%= label f, :detsu do "デツ" end %>
-    <%= date_input f, :detsu, class: "form-control" %>
+    <%= date_input f, :detsu %>
     <%= error_tag f, :detsu %>
+
+    <%= label f, :private? do %>
+      <%= checkbox f, :private? %>
+      "非公開"
+    <% end %>
   </div>
 
   <%= submit "Submit", class: "pure-button pure-button-primary" %>
