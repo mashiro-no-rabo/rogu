@@ -17,8 +17,16 @@ config :logger, :console,
 config :ueberauth, Ueberauth,
   base_path: "/auth",
   providers: [
-    github: {Ueberauth.Strategy.Github, [send_redirect_uri: false, default_scope: "", uid_field: :login, request_path: "/auth",
-    callback_path: "/auth/callback"]}
+    github: {
+      Ueberauth.Strategy.Github,
+      [
+        send_redirect_uri: false,
+        default_scope: "",
+        uid_field: :login,
+        request_path: "/auth",
+        callback_path: "/auth/callback"
+      ]
+    }
   ]
 
 import_config "#{Mix.env}.exs"

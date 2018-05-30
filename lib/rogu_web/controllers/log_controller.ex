@@ -4,6 +4,8 @@ defmodule RoguWeb.LogController do
   alias Rogu.Life
   alias Rogu.Life.Log
 
+  plug :auth, [] when action in [:new, :edit, :update, :delete]
+
   def index(conn, _params) do
     logs = Life.list_logs()
     render(conn, "index.html", logs: logs)
@@ -56,5 +58,16 @@ defmodule RoguWeb.LogController do
     conn
     |> put_flash(:info, "Log deleted successfully.")
     |> redirect(to: log_path(conn, :index))
+  end
+
+  defp auth(conn, _) do
+    if get_session(conn, :login) do
+      conn
+    else
+      conn
+      |> put_flash(:error, "What are you doing?")
+      |> redirect(to: "/")
+      |> halt()
+    end
   end
 end
