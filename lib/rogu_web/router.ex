@@ -14,6 +14,7 @@ defmodule RoguWeb.Router do
 
     get "/auth", AuthController, :request
     get "/auth/callback", AuthController, :callback
+    get "/logout", AuthController, :delete
 
     resources "/", LogController
   end
