@@ -65,7 +65,7 @@ defmodule RoguWeb.LogController do
       conn
     else
       conn
-      |> put_flash(:error, "What are you doing?")
+      |> put_flash(:msg, "何？")
       |> redirect(to: "/")
       |> halt()
     end

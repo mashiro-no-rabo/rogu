@@ -10,26 +10,26 @@ defmodule RoguWeb.AuthController do
 
   def delete(conn, _params) do
     conn
-    |> put_flash(:info, "You have been logged out!")
-    |> configure_session(drop: true)
+    |> put_flash(:msg, "また会いましょう")
+    |> delete_session(:login)
     |> redirect(to: "/")
   end
 
   def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
     conn
-    |> put_flash(:error, "Failed to authenticate.")
+    |> put_flash(:msg, "失敗した")
     |> redirect(to: "/")
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     if auth.uid == "aquarhead" do
       conn
-      |> put_flash(:info, "Successfully authenticated.")
+      |> put_flash(:msg, "おかえりなさい")
       |> put_session(:login, true)
       |> redirect(to: "/")
     else
       conn
-      |> put_flash(:error, "You're not me.")
+      |> put_flash(:msg, "Nei nei nei, þú ert ekki ég")
       |> redirect(to: "/")
     end
   end
