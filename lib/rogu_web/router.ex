@@ -12,6 +12,9 @@ defmodule RoguWeb.Router do
   scope "/", RoguWeb do
     pipe_through :browser
 
+    get "/auth", AuthController, :request
+    get "/auth/callback", AuthController, :callback
+
     resources "/", LogController
   end
 end
