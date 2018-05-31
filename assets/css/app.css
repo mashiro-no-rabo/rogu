@@ -23,12 +23,12 @@ h2 {
 }
 
 h3 {
-  font-family: "cronos-pro-caption";
+  font-family: "cronos-pro-caption", "ten-mincho";
   font-weight: 400;
 }
 
 p {
-  font-family: "cronos-pro-display",sans-serif;
+  font-family: "cronos-pro-display", "ten-mincho", sans-serif;
   font-style: normal;
 }
 
@@ -38,7 +38,7 @@ p {
 
 .log-date {
   opacity: 0.4;
-  font-family: "cronos-pro-display",sans-serif;
+  font-family: "cronos-pro-display", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 60%;
