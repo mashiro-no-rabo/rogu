@@ -36,13 +36,14 @@ defmodule Rogu.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:plug_cowboy, "~> 1.0"},
 
       # Markdown
       {:earmark, "~> 1.2"},
 
       # Auth
       {:ueberauth, "~> 0.5"},
-      {:ueberauth_github, "~> 0.7"}
+      {:ueberauth_github, github: "ueberauth/ueberauth_github"}
     ]
   end
 
