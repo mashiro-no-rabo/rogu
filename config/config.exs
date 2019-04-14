@@ -24,7 +24,8 @@ config :ueberauth, Ueberauth,
         default_scope: "",
         uid_field: :login,
         request_path: "/auth",
-        callback_path: "/auth/callback"
+        callback_path: "/auth/callback",
+        allow_private_emails: true
       ]
     }
   ]
