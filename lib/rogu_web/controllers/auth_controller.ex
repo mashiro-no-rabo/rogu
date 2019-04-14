@@ -22,7 +22,7 @@ defmodule RoguWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    if auth.uid == "aquarhead" do
+    if auth.uid in ["aquarhead", "zinnialulu"] do
       conn
       |> put_flash(:msg, "おかえりなさい")
       |> put_session(:login, true)
